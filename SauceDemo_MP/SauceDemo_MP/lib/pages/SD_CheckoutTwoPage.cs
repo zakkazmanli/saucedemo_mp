@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SauceDemo_MP
 {
-    public class SD_SignInPage
+    public class SD_CheckoutTwoPage
     {
     }
 }
