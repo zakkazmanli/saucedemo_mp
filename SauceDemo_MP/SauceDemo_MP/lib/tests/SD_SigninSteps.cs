@@ -59,11 +59,17 @@ namespace SauceDemo_MP.lib.tests
             Assert.That(SD_Website.SD_SignInPage.RetrieveErrorMessage(), Does.Contain(error));
         }
 
-        //[Then(@"there should be no visible error message")]
-        //public void ThenThereShouldBeNoVisibleErrorMessage()
-        //{
-        //    Assert.That(SD_Website.SD_SignInPage.RetrieveErrorMessage(), Throws.InstanceOf<OpenQA.Selenium.NoSuchElementException>());
-        //}
+        [When(@"I click the remove error message button")]
+        public void WhenIClickTheRemoveErrorMessageButton()
+        {
+            SD_Website.SD_SignInPage.ClickErrorMessageButton();
+        }
+
+        [Then(@"there should be no visible error message")]
+        public void ThenThereShouldBeNoVisibleErrorMessage()
+        {
+            Assert.That(SD_Website.SD_SignInPage.RetrieveErrorMessage(), Is.EqualTo(""));
+        }
 
         [AfterScenario]
         public void TearDown()
