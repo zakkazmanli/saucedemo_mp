@@ -28,7 +28,8 @@ namespace SauceDemo_MP.lib.tests
         [Given(@"I click the (.*) product button")]
         public void GivenIClickTheProductButton(string productName)
         {
-            ScenarioContext.Current.Pending();
+            var test = SD_Website.SD_ProductsPage.GetListOfProductsNames();
+            SD_Website.SD_ProductsPage.ClickProductName(productName);
         }
 
         [Given(@"There are no items in my cart")]
@@ -49,13 +50,19 @@ namespace SauceDemo_MP.lib.tests
         [When(@"I click the add to cart button")]
         public void IClickTheAddToCartButton()
         {
-            SD_Website.SD_ProductPage.AddItemToCartClick();
+            SD_Website.SD_ProductPage.AddOrRemoveButtonClick();
         }
 
         [When(@"I click the remove button")]
         public void WhenIClickTheRemoveButton()
         {
-            SD_Website.SD_ProductPage.RemoveItemFromCartClick();
+            SD_Website.SD_ProductPage.AddOrRemoveButtonClick();
+        }
+
+        [When(@"I click the back button")]
+        public void WhenIClickTheBackButton()
+        {
+            SD_Website.SD_ProductPage.GoBackToProductsList();
         }
 
         [Then(@"the cart number size decreases by one")]
@@ -67,8 +74,13 @@ namespace SauceDemo_MP.lib.tests
         [Then(@"the remove button changes to add to cart")]
         public void ThenTheRemoveButtonChangesToAddToCart()
         {
-            //Assert.That(SD_Website.SD_ProductPage.GetRemoveFromCartButtonText(), Throws.InstanceOf<OpenQA.Selenium.NoSuchElementException>());
-            Assert.That(SD_Website.SD_ProductPage.GetAddItemToCartButtonText().ToLower(), Is.EqualTo("add to cart"));
+            Assert.That(SD_Website.SD_ProductPage.GetAddOrRemoveButtonText().ToLower(), Is.EqualTo("add to cart"));
+        }
+
+        [Then(@"I should be on the products page")]
+        public void ThenIShouldBeOnTheProductsPage()
+        {
+            Assert.That(SD_Website.SeleniumDriver.Url, Is.EqualTo("https://www.saucedemo.com/inventory.html"));
         }
 
         [Then(@"the cart number size increases by one")]
@@ -80,8 +92,14 @@ namespace SauceDemo_MP.lib.tests
         [Then(@"the add to cart button changes to remove")]
         public void ThenTheAddToCartButtonChangesToRemove()
         {
-            //Assert.That(SD_Website.SD_ProductPage.GetAddItemToCartButtonText(), Throws.InstanceOf<OpenQA.Selenium.NoSuchElementException>());
-            Assert.That(SD_Website.SD_ProductPage.GetRemoveFromCartButtonText().ToLower(), Is.EqualTo("remove"));
+            Assert.That(SD_Website.SD_ProductPage.GetAddOrRemoveButtonText().ToLower(), Is.EqualTo("remove"));
+        }
+
+        [AfterScenario]
+        public void TearDown()
+        {
+            SD_Website.SeleniumDriver.Dispose();
+            SD_Website.SeleniumDriver.Quit();
         }
     }
 }
