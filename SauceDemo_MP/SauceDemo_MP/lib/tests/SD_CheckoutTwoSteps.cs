@@ -30,8 +30,9 @@ namespace SauceDemo_MP.lib.tests
             // add to cart  SD_Website.SD_ProductsPage.AddToCart();
         }
 
+        [Given(@"I am on the checkout two page")]
         [When(@"I go to the checkout two page")]
-        public void WhenIGoToTheCheckoutTwoPage()
+        public void IGoToTheCheckoutTwoPage()
         {
             SD_Website.SD_CheckoutTwoPage.OnTheCheckoutTwoPage();
         }
