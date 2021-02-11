@@ -1,8 +1,22 @@
 # Mini Automated Web Testing Project 
 
-## Summary 
+## Project Goal
+The goal of this project was to create a testing framework to support the automation testing of https://www.saucedemo.com/. This website was specifically created for the purposes of automation testing and as such supports multiple utilities of widely used websites, such as sign-in functionality and the ability to add items to a cart to be later checked out. This framework was to be created adhering to the POM design approach for automation testing, with the following tools used:
 
-For this project, the site that you will be testing is https://www.saucedemo.com/. This has been created specifically for practicing automation coding. Your TASK is to look at the functionality for the website, derive user stories from this and create some test cases for said user stories. You can have as many Sprints as you require. 
+ - Selenium to enable simulations interactions with browser elements
+ - SpecFlow to enable feature files to be written that mapped to user stories on our project board
+ - Gherkin as a means of writing concise and readable acceptance criteria for user stories to represent user journeys on the website, which could then be mapped to test cases
+
+
+## Project Definition of Done
+
+- [ ] All user stories are marked as completed and tested.
+- [ ] All unit tests pass.
+- [ ] The end product is pushed to GitHub by TBC on 12/02/2021
+- [ ] The documentation is fully realised, with a comprehensive README.md describing sprint progress and outcomes.
+- [ ] The end product is reviewed and approved.
+
+## Class Diagram
 
 ## Test Cases
 #### 1. Sign in Page 
@@ -49,29 +63,6 @@ For this project, the site that you will be testing is https://www.saucedemo.c
 - Back
 
 
-## Framework
-* Controller Class to control all the POMs (Page Object Models) which includes a constructor which instantiate the driver and instantiates the page object with the selenium driver 
-* Each POM will have its own feature file which will include the tests for that POM
-* Writing the test in a Specflow feature file in Gherkin syntax so it is human readable and clear what each test checks
-* Then creating step definitions to match each statement in the feature file 
-* Step definition classes then call methods from a class which holds methods for the POM in test  
+## Sprint Retrospective
 
 
-
-
- 
-## Deliverables 
-
-Up to date project board  
-
-High quality user stories and test cases 
-
-Fully functional test framework using POM pattern 
-
-Very clear Gherkin scenarios that represent the user journeys 
-
-A README.md that includes all your documentation of what you have tested and how to run your test framework. 
-
-Use GitHub collaboratively 
-
-Present your work on Friday 9th Feb (Time TBC) 
