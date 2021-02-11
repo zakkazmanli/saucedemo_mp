@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SauceDemo_MP.lib.pages
+namespace SauceDemo_MP
 {
     public class SD_SignInPage
     {
