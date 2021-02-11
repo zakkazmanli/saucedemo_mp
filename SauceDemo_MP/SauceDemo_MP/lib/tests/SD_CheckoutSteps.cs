@@ -55,7 +55,7 @@ namespace SauceDemo_MP.lib.steps
         [Then(@"I land on the Second Checkout Page")]
         public void ThenILandOnTheSecondCheckoutPage()
         {
-            Assert.That(SD_Website.SeleniumDriver.Url, Is.EqualTo("https://www.https://www.saucedemo.com/checkout-step-two.html"));
+            Assert.That(SD_Website.SeleniumDriver.Url, Is.EqualTo("https://www.saucedemo.com/checkout-step-two.html"));
         }
 
         [Then(@"I should receive the error containing ""(.*)""")]
