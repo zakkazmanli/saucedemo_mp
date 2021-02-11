@@ -5,7 +5,6 @@
 Background: 
 	Given I have signed in as "standard_user" with the password "secret_sauce"
 	And I click the <product_name> product button
-	Examples:
 		| product_name                      |
 		| Sauce Labs Backpack               |
 		| Sauce Labs Bolt T-Shirt           |
