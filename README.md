@@ -18,7 +18,6 @@ The goal of this project was to create a testing framework to support the automa
 
 ## Class Diagram
 
-![](https://github.com/zakkazmanli/saucedemo_mp/blob/dev/SauceDemo_MP/ClassDiagram.png)
 
 ## Test Cases
 #### 1. Sign in Page 
