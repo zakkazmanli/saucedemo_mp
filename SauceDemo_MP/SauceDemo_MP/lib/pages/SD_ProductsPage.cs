@@ -25,10 +25,11 @@ namespace SauceDemo_MP.lib.pages
         private IReadOnlyCollection<IWebElement> productsNameList => _seleniumDriver.FindElements(By.ClassName("inventory_item_name"));
         private IReadOnlyCollection<IWebElement> productsAddToCart => _seleniumDriver.FindElements(By.ClassName("btn_inventory"));
         private IWebElement burgerMenuButton => _seleniumDriver.FindElement(By.CssSelector(".bm-burger-button"));
+
+
         public void GoToProductsPage() => _seleniumDriver.Navigate().GoToUrl(_productsPageURL);
 
         public void GoToCheckout() => cart.Click();
-
 
         public void FilterProducts(string filterSpecifier) => filterOptions.SelectByValue(filterSpecifier);
 
@@ -40,8 +41,19 @@ namespace SauceDemo_MP.lib.pages
 
         public void AddItemToCart() => productsAddToCart.ToArray()[0].Click();
 
+        public void RemoveItemFromCart() => productsAddToCart.ToArray()[0].Click();
+
         public int GetCartItemCount() => int.Parse(_seleniumDriver.FindElement(By.ClassName("shopping_cart_badge")).Text);
 
-        public string GetRemoveButtonText() => _seleniumDriver.FindElement(By.ClassName("btn_secondary")).Text;
+        public string GetRemoveButtonText() => _seleniumDriver.FindElement(By.ClassName("btn_inventory")).Text;
+
+        public bool CheckProductsSortedAlphabetically(bool alphabetical)
+        {
+            IEnumerable<string> sortedArray;
+            if(alphabetical) sortedArray = GetListOfProductsNames().OrderBy(element => element);
+            else sortedArray = GetListOfProductsNames().OrderByDescending(element => element);
+
+            return GetListOfProductsNames().SequenceEqual(sortedArray);
+        }
     }
 }
