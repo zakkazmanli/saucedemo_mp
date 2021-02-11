@@ -11,12 +11,13 @@ namespace SauceDemo_MP
         public SD_ProductsPage SD_ProductsPage { get; set; }
         //public SD_ProductPage SD_ProductPage { get; set; }
         //public SD_CartPage SD_CartPage { get; set; }
-        //public SD_CheckoutPage SD_CheckoutPage { get; set; }
-        //public SD_CheckoutTwoPage SD_CheckoutTwoPage { get; set; }
+        public SD_CheckoutPage SD_CheckoutPage { get; set; }
+        public SD_CheckoutTwoPage SD_CheckoutTwoPage { get; set; }
 
         public SD_Website(int pageLoadWaitInSecs = 10, int implicitWaitInSecs = 10)
         {
             SeleniumDriver = new SeleniumDriverConfig<T>(pageLoadWaitInSecs, implicitWaitInSecs).Driver;
+          
             SD_SignInPage = new SD_SignInPage(SeleniumDriver);
             SD_ProductsPage = new SD_ProductsPage(SeleniumDriver);
         //    SD_ProductPage = new SD_ProductPage(SeleniumDriver);
