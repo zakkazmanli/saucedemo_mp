@@ -1,9 +1,12 @@
 ﻿Feature: CheckoutPageFeature
-	Simple calculator for adding two numbers
+		 As a registered user
+		 In order to buy an item
+		 I need to enter my details and checkout
 
-@mytag
-Scenario: Add two numbers
-	Given the first number is 50
-	And the second number is 70
-	When the two numbers are added
-	Then the result should be 120
+
+
+@checkout
+Scenario:Checkout Page : All Fields Empty
+Given I am on the checkout page 
+When I press "Continue"
+Then I get an error saying "First Name is required"

@@ -118,6 +118,7 @@
     <Compile Include="lib\pages\SD_CheckoutTwoPage.cs" />
     <Compile Include="lib\pages\SD_SignInPage.cs" />
     <Compile Include="lib\SD_Website.cs" />
+    <Compile Include="lib\steps\CheckoutPageFeatureSteps.cs" />
     <Compile Include="lib\tests\SD_SigninSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tests\UnitTest.cs" />
@@ -125,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="lib\features\CheckoutPageFeature.feature" />
     <None Include="lib\features\SD_Products.feature" />
     <None Include="lib\features\SD_Signin.feature" />
     <None Include="packages.config" />
