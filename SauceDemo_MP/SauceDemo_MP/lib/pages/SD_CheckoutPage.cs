@@ -12,10 +12,10 @@ namespace SauceDemo_MP
     {
         private IWebDriver _seleniumDriver;
 
-        private string checkoutUrl = $"{AppConfigReader.BaseURL} + '/checkout-step-one.html'";
+        private string checkoutUrl = "https://www.saucedemo.com/checkout-step-one.html";
 
-        private IWebElement _continue => _seleniumDriver.FindElement(By.ClassName("btn_primary cart_button"));
-        private IWebElement _cancel => _seleniumDriver.FindElement(By.ClassName("cart_cancel_link btn_secondary"));
+        private IWebElement _continue => _seleniumDriver.FindElement(By.ClassName("cart_button"));
+        private IWebElement _cancel => _seleniumDriver.FindElement(By.ClassName("cart_cancel_link"));
         private IWebElement _subheader => _seleniumDriver.FindElement(By.ClassName("subheader"));
         private IWebElement _firstName => _seleniumDriver.FindElement(By.Id("first-name"));
         private IWebElement _lastName => _seleniumDriver.FindElement(By.Id("last-name"));
@@ -34,11 +34,11 @@ namespace SauceDemo_MP
 
         public void PressButton(string button)
         {
-            if (button == "continue")
+            if (button == "Continue")
             {
                 _continue.Click();
             }
-            if (button == "cancel")
+            if (button == "Cancel")
             {
                 _cancel.Click();
             }

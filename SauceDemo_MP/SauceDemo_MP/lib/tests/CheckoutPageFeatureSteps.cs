@@ -8,20 +8,11 @@ namespace SauceDemo_MP.lib.steps
     [Binding]
     public class CheckoutPageFeatureSteps
     {
-        private SD_Website<ChromeDriver> SD_Website;
-
-        [BeforeScenario]
-        public void SetUp()
-        {
-            SD_Website = new SD_Website<ChromeDriver>();
-        }
+        private SD_Website<ChromeDriver> SD_Website = new SD_Website<ChromeDriver>();
 
         [Given(@"I am on the checkout page")]
         public void GivenIAmOnTheCheckoutPage()
         {
-            SD_Website.SD_SignInPage.NavigateToSignInPage();
-            SD_Website.SD_SignInPage.EnterUsernameAndPassword("standard_user", "secret_sauce");
-            SD_Website.SD_SignInPage.ClickLoginButton();
             SD_Website.SD_CheckoutPage.OnTheCheckoutPage();
         }
 
@@ -44,13 +35,6 @@ namespace SauceDemo_MP.lib.steps
         {
             SD_Website.SD_CheckoutPage.PressButton(button);
         }
-        
-        [Then(@"I get an error saying ""(.*)""")]
-        public void ThenIGetAnErrorSaying(string expected)
-        {
-            Assert.That(SD_Website.SD_CheckoutPage.EmptyFieldsAlert().Contains(expected));
-
-        }
 
         [Then(@"I land on the Cart Page")]
         public void ThenILandOnTheCartPage()
@@ -70,6 +54,12 @@ namespace SauceDemo_MP.lib.steps
         public void ThenILandOnTheSecondCheckoutPage()
         {
             Assert.That(SD_Website.SD_CheckoutPage.Subheader().Contains("Checkout: Overview"));
+        }
+
+        [Then(@"I should receive the error containing ""(.*)""")]
+        public void ThenIShouldReceiveTheErrorContaining(string error)
+        {
+            Assert.That(SD_Website.SD_CheckoutPage.RetrieveErrorMessage(), Does.Contain(error));
         }
 
 
