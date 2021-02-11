@@ -16,7 +16,6 @@ namespace SauceDemo_MP
 
         private IWebElement _continue => _seleniumDriver.FindElement(By.ClassName("btn_primary cart_button"));
         private IWebElement _cancel => _seleniumDriver.FindElement(By.ClassName("cart_cancel_link btn_secondary"));
-        private IWebElement _subheader => _seleniumDriver.FindElement(By.ClassName("subheader"));
         private IWebElement _firstName => _seleniumDriver.FindElement(By.Id("first-name"));
         private IWebElement _lastName => _seleniumDriver.FindElement(By.Id("last-name"));
         private IWebElement _postCode => _seleniumDriver.FindElement(By.Id("postal-code"));
@@ -60,11 +59,6 @@ namespace SauceDemo_MP
         public string EmptyFieldsAlert()
         {
             return RetrieveErrorMessage();
-        }
-
-        public string Subheader()
-        {
-            return _subheader.Text;
         }
     }
 }

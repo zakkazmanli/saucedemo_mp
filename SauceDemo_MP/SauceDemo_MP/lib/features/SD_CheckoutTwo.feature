@@ -1,0 +1,19 @@
+﻿Feature: SD_CheckoutTwo
+
+@Return
+Scenario: Checkout Page Two, Return to Products
+Given I am on the checkout two page 
+When I press "Cancel"
+Then I land on the Products Page
+
+@sendOrder
+Scenario: Checkout Page Two, Send Order
+Given I am on the checkout two page 
+When I press "Finish"
+Then I land on the Checkout Complete Page
+
+@viewItem
+Scenario: Checkout Page Two, View Item
+Given I am on the checkout two page 
+When I press on the Item 
+Then I land on the item info page 
