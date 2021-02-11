@@ -21,9 +21,9 @@ namespace SauceDemo_MP
             SD_SignInPage = new SD_SignInPage(SeleniumDriver);
             SD_ProductsPage = new SD_ProductsPage(SeleniumDriver);
             SD_ProductPage = new SD_ProductPage(SeleniumDriver);
-        //    SD_CartPage = new SD_CartPage(SeleniumDriver);
-        //    SD_CheckoutPage = new SD_CheckoutPage(SeleniumDriver);
-        //    SD_CheckoutTwoPage = new SD_CheckoutTwoPage(SeleniumDriver);
+            //SD_CartPage = new SD_CartPage(SeleniumDriver);
+            SD_CheckoutPage = new SD_CheckoutPage(SeleniumDriver);
+            SD_CheckoutTwoPage = new SD_CheckoutTwoPage(SeleniumDriver);
         }
 
         public void DeleteCookies()
