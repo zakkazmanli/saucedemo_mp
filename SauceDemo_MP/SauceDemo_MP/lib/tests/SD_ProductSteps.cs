@@ -8,13 +8,15 @@ namespace SauceDemo_MP.lib.tests
     [Binding]
     public class SD_ProductSteps
     {
-        private SD_Website<ChromeDriver> SD_Website;
+        private SD_Website<ChromeDriver> SD_Website = new SD_Website<ChromeDriver>();
+
         private int _itemsInCart;
 
-        [BeforeScenario]
-        public void SetUp()
+        [Given(@"I click the (.*) product button")]
+        public void GivenIClickTheProductButton(string productName)
         {
-            SD_Website = new SD_Website<ChromeDriver>();
+            var test = SD_Website.SD_ProductsPage.GetListOfProductsNames();
+            SD_Website.SD_ProductsPage.ClickProductName(productName);
         }
 
         [Given(@"I have signed in as ""(.*)"" with the password ""(.*)""")]
@@ -23,13 +25,6 @@ namespace SauceDemo_MP.lib.tests
             SD_Website.SD_SignInPage.NavigateToSignInPage();
             SD_Website.SD_SignInPage.EnterUsernameAndPassword(username, password);
             SD_Website.SD_SignInPage.ClickLoginButton();
-        }
-
-        [Given(@"I click the (.*) product button")]
-        public void GivenIClickTheProductButton(string productName)
-        {
-            var test = SD_Website.SD_ProductsPage.GetListOfProductsNames();
-            SD_Website.SD_ProductsPage.ClickProductName(productName);
         }
 
         [Given(@"There are no items in my cart")]

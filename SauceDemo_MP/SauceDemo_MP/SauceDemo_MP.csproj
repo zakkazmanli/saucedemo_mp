@@ -113,26 +113,27 @@
   <ItemGroup>
     <Compile Include="AppConfigReader.cs" />
     <Compile Include="lib\driver_config\SeleniumDriverConfig.cs" />
+    <Compile Include="lib\pages\SD_CartPage.cs" />
     <Compile Include="lib\pages\SD_ProductPage.cs" />
     <Compile Include="lib\pages\SD_ProductsPage.cs" />
     <Compile Include="lib\pages\SD_CheckoutPage.cs" />
     <Compile Include="lib\pages\SD_CheckoutTwoPage.cs" />
     <Compile Include="lib\pages\SD_SignInPage.cs" />
     <Compile Include="lib\SD_Website.cs" />
-    <Compile Include="lib\tests\SD_ProductsSteps.cs" />
-    <Compile Include="lib\tests\SD_CheckoutTwoSteps.cs" />
+    <Compile Include="lib\tests\SD_CartSteps.cs" />
     <Compile Include="lib\tests\SD_ProductSteps.cs" />
-    <Compile Include="lib\tests\SD_CheckoutSteps.cs" />
+    <Compile Include="lib\tests\CheckoutPageFeatureSteps.cs" />
     <Compile Include="lib\tests\SD_SigninSteps.cs" />
+    <Compile Include="lib\tests\SharedSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tests\UnitTest.cs" />
     <Compile Include="tests\UnitTest2.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="lib\features\SD_CheckoutTwo.feature" />
+    <None Include="lib\features\SD_Cart.feature" />
     <None Include="lib\features\SD_Product.feature" />
-    <None Include="lib\features\SD_Checkout.feature" />
+    <None Include="lib\features\CheckoutPageFeature.feature" />
     <None Include="lib\features\SD_Products.feature" />
     <None Include="lib\features\SD_Signin.feature" />
     <None Include="packages.config" />

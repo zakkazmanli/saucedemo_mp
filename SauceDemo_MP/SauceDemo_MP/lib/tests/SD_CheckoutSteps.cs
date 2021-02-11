@@ -8,22 +8,7 @@ namespace SauceDemo_MP.lib.steps
     [Binding]
     public class CheckoutPageFeatureSteps
     {
-        private SD_Website<ChromeDriver> SD_Website;
-
-        [BeforeScenario]
-        public void SetUp()
-        {
-            SD_Website = new SD_Website<ChromeDriver>();
-        }
-
-        [Given(@"I am logged in")]
-        public void GivenIAmLoggedIn()
-        {
-            SD_Website.SD_SignInPage.NavigateToSignInPage();
-            SD_Website.SD_SignInPage.EnterUsernameAndPassword("standard_user", "secret_sauce");
-            SD_Website.SD_SignInPage.ClickLoginButton();
-        }
-
+        private SD_Website<ChromeDriver> SD_Website = new SD_Website<ChromeDriver>();
 
         [Given(@"I am on the checkout page")]
         public void GivenIAmOnTheCheckoutPage()
@@ -31,8 +16,8 @@ namespace SauceDemo_MP.lib.steps
             SD_Website.SD_CheckoutPage.OnTheCheckoutPage();
         }
 
-        [When(@"I enter a ""(.*)"" and ""(.*)""")]
-        public void WhenIEnterAAnd(string firstinput, string secondinput)
+        [Given(@"I enter a ""(.*)"" and ""(.*)""")]
+        public void GivenIEnterAAnd(string firstinput, string secondinput)
         {
             if (firstinput == "firstname")
             { SD_Website.SD_CheckoutPage.EnterFirstName(firstinput); }
@@ -51,32 +36,30 @@ namespace SauceDemo_MP.lib.steps
             SD_Website.SD_CheckoutPage.PressButton(button);
         }
 
-        [When(@"I fill in the firstname, secondname, postcode")]
-        public void WhenIFillInTheFirstnameSecondnamePostcode()
+        [Then(@"I land on the Cart Page")]
+        public void ThenILandOnTheCartPage()
+        {
+            Assert.That(SD_Website.SD_CheckoutPage.Subheader().Contains("Your Cart"));
+        }
+
+        [Given(@"I fill in the firstname, secondname, postcode")]
+        public void GivenIFillInTheFirstnameSecondnamePostcode()
         {
             SD_Website.SD_CheckoutPage.EnterFirstName("Sam");
             SD_Website.SD_CheckoutPage.EnterLastName("Test");
             SD_Website.SD_CheckoutPage.EnterPostCode("12345");
         }
 
-        [Then(@"I get an error saying ""(.*)""")]
-        public void ThenIGetAnErrorSaying(string expected)
-        {
-            Assert.That(SD_Website.SD_CheckoutPage.EmptyFieldsAlert().Contains(expected));
-
-        }
-
-        [Then(@"I land on the Cart Page")]
-        public void ThenILandOnTheCartPage()
-        {
-            Assert.That(SD_Website.SeleniumDriver.Url, Is.EqualTo("https://www.saucedemo.com/cart.html"));
-        }
-
-
         [Then(@"I land on the Second Checkout Page")]
         public void ThenILandOnTheSecondCheckoutPage()
         {
-            Assert.That(SD_Website.SeleniumDriver.Url, Is.EqualTo("https://www.https://www.saucedemo.com/checkout-step-two.html"));
+            Assert.That(SD_Website.SD_CheckoutPage.Subheader().Contains("Checkout: Overview"));
+        }
+
+        [Then(@"I should receive the error containing ""(.*)""")]
+        public void ThenIShouldReceiveTheErrorContaining(string error)
+        {
+            Assert.That(SD_Website.SD_CheckoutPage.RetrieveErrorMessage(), Does.Contain(error));
         }
 
 
