@@ -13,7 +13,8 @@ Then I get an error saying "First Name is required"
 
 @checkouterror
 Scenario: Checkout Page, First Name Empty
-Given I am on the checkout page 
+Given I am logged in
+And I am on the checkout page 
 When I enter a "lastname" and "postcode"
 And I press "Continue"
 Then I get an error saying "First Name is required"
@@ -36,7 +37,8 @@ Then I get an error saying "Postal Code is required"
 
 @checkoutreturn
 Scenario: Checkout Page, Return to Cart
-Given I am on the checkout page 
+Given I am logged in
+And I am on the checkout page 
 When I press "Cancel"
 Then I land on the Cart Page 
 

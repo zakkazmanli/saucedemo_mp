@@ -15,6 +15,7 @@ namespace SauceDemo_MP.lib.steps
         {
             SD_Website = new SD_Website<ChromeDriver>();
         }
+
         [Given(@"I am logged in")]
         public void GivenIAmLoggedIn()
         {
@@ -31,7 +32,7 @@ namespace SauceDemo_MP.lib.steps
         }
 
         [When(@"I enter a ""(.*)"" and ""(.*)""")]
-        public void GivenIEnterAAnd(string firstinput, string secondinput)
+        public void WhenIEnterAAnd(string firstinput, string secondinput)
         {
             if (firstinput == "firstname")
             { SD_Website.SD_CheckoutPage.EnterFirstName(firstinput); }
@@ -49,7 +50,15 @@ namespace SauceDemo_MP.lib.steps
         {
             SD_Website.SD_CheckoutPage.PressButton(button);
         }
-        
+
+        [When(@"I fill in the firstname, secondname, postcode")]
+        public void WhenIFillInTheFirstnameSecondnamePostcode()
+        {
+            SD_Website.SD_CheckoutPage.EnterFirstName("Sam");
+            SD_Website.SD_CheckoutPage.EnterLastName("Test");
+            SD_Website.SD_CheckoutPage.EnterPostCode("12345");
+        }
+
         [Then(@"I get an error saying ""(.*)""")]
         public void ThenIGetAnErrorSaying(string expected)
         {
@@ -63,13 +72,6 @@ namespace SauceDemo_MP.lib.steps
             Assert.That(SD_Website.SeleniumDriver.Url, Is.EqualTo("https://www.saucedemo.com/cart.html"));
         }
 
-        [Given(@"I fill in the firstname, secondname, postcode")]
-        public void GivenIFillInTheFirstnameSecondnamePostcode()
-        {
-            SD_Website.SD_CheckoutPage.EnterFirstName("Sam");
-            SD_Website.SD_CheckoutPage.EnterLastName("Test");
-            SD_Website.SD_CheckoutPage.EnterPostCode("12345");
-        }
 
         [Then(@"I land on the Second Checkout Page")]
         public void ThenILandOnTheSecondCheckoutPage()
