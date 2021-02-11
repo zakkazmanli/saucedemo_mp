@@ -41,12 +41,12 @@ namespace SauceDemo_MP
             {
                 return _seleniumDriver.FindElement(By.CssSelector("*[data-test=\"error\"]")).Text;
             }
-            catch(NoSuchElementException e)
+            catch (NoSuchElementException e)
             {
                 return "";
             }
         }
-        
+
         public void ClickErrorMessageButton() => _seleniumDriver.FindElement(By.ClassName("error-button")).Click();
     }
 }
