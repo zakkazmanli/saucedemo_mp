@@ -16,7 +16,7 @@ namespace SauceDemo_MP.lib.steps
             SD_Website.SD_CheckoutPage.OnTheCheckoutPage();
         }
 
-        [Given(@"I enter a ""(.*)"" and ""(.*)""")]
+        [When(@"I enter a ""(.*)"" and ""(.*)""")]
         public void GivenIEnterAAnd(string firstinput, string secondinput)
         {
             if (firstinput == "firstname")
@@ -39,21 +39,23 @@ namespace SauceDemo_MP.lib.steps
         [Then(@"I land on the Cart Page")]
         public void ThenILandOnTheCartPage()
         {
-            Assert.That(SD_Website.SD_CheckoutPage.Subheader().Contains("Your Cart"));
+            Assert.That(SD_Website.SeleniumDriver.Url, Is.EqualTo("https://www.saucedemo.com/cart.html"));
         }
 
         [Given(@"I fill in the firstname, secondname, postcode")]
-        public void GivenIFillInTheFirstnameSecondnamePostcode()
+        [When(@"I fill in the firstname, secondname, postcode")]
+        public void IFillInTheFirstnameSecondnamePostcode()
         {
             SD_Website.SD_CheckoutPage.EnterFirstName("Sam");
             SD_Website.SD_CheckoutPage.EnterLastName("Test");
             SD_Website.SD_CheckoutPage.EnterPostCode("12345");
         }
 
+
         [Then(@"I land on the Second Checkout Page")]
         public void ThenILandOnTheSecondCheckoutPage()
         {
-            Assert.That(SD_Website.SD_CheckoutPage.Subheader().Contains("Checkout: Overview"));
+            Assert.That(SD_Website.SeleniumDriver.Url, Is.EqualTo("https://www.https://www.saucedemo.com/checkout-step-two.html"));
         }
 
         [Then(@"I should receive the error containing ""(.*)""")]

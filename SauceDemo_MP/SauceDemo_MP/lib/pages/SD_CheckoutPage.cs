@@ -61,10 +61,5 @@ namespace SauceDemo_MP
         {
             return RetrieveErrorMessage();
         }
-
-        public string Subheader()
-        {
-            return _subheader.Text;
-        }
     }
 }

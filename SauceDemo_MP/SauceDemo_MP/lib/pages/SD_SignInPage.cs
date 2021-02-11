@@ -35,8 +35,18 @@ namespace SauceDemo_MP
 
         public void ClickLoginButton() => _loginButton.Click();
 
-        public string RetrieveErrorMessage() => _seleniumDriver.FindElement(By.CssSelector("*[data-test=\"error\"]")).Text;
-        
+        public string RetrieveErrorMessage()
+        {
+            try
+            {
+                return _seleniumDriver.FindElement(By.CssSelector("*[data-test=\"error\"]")).Text;
+            }
+            catch (NoSuchElementException e)
+            {
+                return "";
+            }
+        }
+
         public void ClickErrorMessageButton() => _seleniumDriver.FindElement(By.ClassName("error-button")).Click();
     }
 }
