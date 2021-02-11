@@ -1,9 +1,5 @@
 # Mini Automated Web Testing Project 
 
-## Summary 
-
-For this project, the site that you will be testing is https://www.saucedemo.com/. This has been created specifically for practicing automation coding. Your TASK is to look at the functionality for the website, derive user stories from this and create some test cases for said user stories. You can have as many Sprints as you require. 
-
 ## Project Goal
 The goal of this project was to create a testing framework to support the automation testing of https://www.saucedemo.com/. This website was specifically created for the purposes of automation testing and as such supports multiple utilities of widely used websites, such as sign-in functionality and the ability to add items to a cart to be later checked out. This framework was to be created adhering to the POM design approach for automation testing, with the following tools used:
 
