@@ -9,7 +9,7 @@ namespace SauceDemo_MP
         public IWebDriver SeleniumDriver { get; internal set; }
         public SD_SignInPage SD_SignInPage { get; set; }
         public SD_ProductsPage SD_ProductsPage { get; set; }
-        //public SD_ProductPage SD_ProductPage { get; set; }
+        public SD_ProductPage SD_ProductPage { get; set; }
         //public SD_CartPage SD_CartPage { get; set; }
         public SD_CheckoutPage SD_CheckoutPage { get; set; }
         public SD_CheckoutTwoPage SD_CheckoutTwoPage { get; set; }
@@ -20,7 +20,7 @@ namespace SauceDemo_MP
           
             SD_SignInPage = new SD_SignInPage(SeleniumDriver);
             SD_ProductsPage = new SD_ProductsPage(SeleniumDriver);
-        //    SD_ProductPage = new SD_ProductPage(SeleniumDriver);
+            SD_ProductPage = new SD_ProductPage(SeleniumDriver);
         //    SD_CartPage = new SD_CartPage(SeleniumDriver);
         //    SD_CheckoutPage = new SD_CheckoutPage(SeleniumDriver);
         //    SD_CheckoutTwoPage = new SD_CheckoutTwoPage(SeleniumDriver);

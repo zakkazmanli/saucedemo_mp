@@ -34,8 +34,10 @@ namespace SauceDemo_MP.lib.pages
 
         public void FilterProducts(string filterSpecifier) => filterOptions.SelectByValue(filterSpecifier);
 
+        public void ClickProductName(string productName) => productsNameList.Where(item => item.Text.Contains(productName.Trim('\"'))).FirstOrDefault().FindElement(By.XPath("..")).Click();
+
         public IEnumerable<decimal> GetListOfProductsPrices() => productsPriceList.Select(e => decimal.Parse(e.Text, NumberStyles.Currency, new CultureInfo("en-US")));
 
-        public IEnumerable<decimal> GetListOfProductsNames() => productsNameList.Select(e => decimal.Parse(e.Text, NumberStyles.Currency, new CultureInfo("en-US")));
+        public IEnumerable<string> GetListOfProductsNames() => productsNameList.Select(element => element.Text).ToArray();
     }
 }
