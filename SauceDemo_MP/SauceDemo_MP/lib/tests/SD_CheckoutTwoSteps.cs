@@ -16,8 +16,22 @@ namespace SauceDemo_MP.lib.tests
             SD_Website = new SD_Website<ChromeDriver>();
         }
 
-        [Given(@"I am on the checkout two page")]
-        public void GivenIAmOnTheCheckoutTwoPage()
+        [Given(@"I am logged in")]
+        public void GivenIAmLoggedIn()
+        {
+            SD_Website.SD_SignInPage.NavigateToSignInPage();
+            SD_Website.SD_SignInPage.EnterUsernameAndPassword("standard_user", "secret_sauce");
+            SD_Website.SD_SignInPage.ClickLoginButton();
+        }
+
+        [Given(@"I have item\(s\) in my cart")]
+        public void GivenIHaveItemSInMyCart()
+        {
+            // add to cart  SD_Website.SD_ProductsPage.AddToCart();
+        }
+
+        [When(@"I go to the checkout two page")]
+        public void WhenIGoToTheCheckoutTwoPage()
         {
             SD_Website.SD_CheckoutTwoPage.OnTheCheckoutTwoPage();
         }
@@ -26,6 +40,12 @@ namespace SauceDemo_MP.lib.tests
         public void WhenIPressOnTheItem()
         {
             SD_Website.SD_CheckoutTwoPage.ClickOnItem();
+        }
+
+        [Then(@"my item total is correct")]
+        public void ThenMyItemTotalIsCorrect()
+        {
+            SD_Website.SD_CheckoutTwoPage.SumOfItems();
         }
         
         [Then(@"I land on the Products Page")]

@@ -12,7 +12,8 @@ namespace SauceDemo_MP
     {
         private IWebDriver _seleniumDriver;
         private string checkoutTwoUrl = $"{AppConfigReader.BaseURL} + '/checkout-step-two.html'";
-        private IWebElement _item => _seleniumDriver.FindElement(By.ClassName("inventory_item_name"));        
+        private IWebElement _item => _seleniumDriver.FindElement(By.ClassName("inventory_item_name"));  
+        
 
         public SD_CheckoutTwoPage(IWebDriver seleniumDriver)
         {
@@ -29,5 +30,9 @@ namespace SauceDemo_MP
             _item.Click();
         }
 
+        public double SumOfItems()
+        {
+            return 1.0; // need to work out this method 
+        }
     }
 }
