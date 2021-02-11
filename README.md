@@ -16,7 +16,7 @@ The goal of this project was to create a testing framework to support the automa
 - [ ] The documentation is fully realised, with a comprehensive README.md describing sprint progress and outcomes.
 - [ ] The end product is reviewed and approved.
 
-
+## Class Diagram
 
 ## Test Cases
 #### 1. Sign in Page 
@@ -63,11 +63,6 @@ The goal of this project was to create a testing framework to support the automa
 - Back
 
 
-## Framework
-* Controller Class to control all the POMs (Page Object Models) which includes a constructor which instantiate the driver and instantiates the page object with the selenium driver 
-* Each POM will have its own feature file which will include the tests for that POM
-* Writing the test in a Specflow feature file in Gherkin syntax so it is human readable and clear what each test checks
-* Then creating step definitions to match each statement in the feature file 
-* Step definition classes then call methods from a class which holds methods for the POM in test  
+## Sprint Retrospective
 
 
