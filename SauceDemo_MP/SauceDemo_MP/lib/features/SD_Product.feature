@@ -32,3 +32,10 @@ Scenario: Remove item From cart
 	When I click the remove button
 	Then the cart number size decreases by one
 	And the remove button changes to add to cart
+
+@Product
+Scenario: Back to products page from product
+	Given I have signed in as "standard_user" with the password "secret_sauce"
+	And I click the "Sauce Labs Backpack" product button
+	When I click the back button
+	Then I should be on the products page

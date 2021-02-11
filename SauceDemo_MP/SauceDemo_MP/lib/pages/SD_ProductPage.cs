@@ -22,7 +22,18 @@ namespace SauceDemo_MP.lib.pages
         private IWebElement _backButton => _seleniumDriver.FindElement(By.ClassName("inventory_details_back_button"));
 
         public void GoToCheckout() => _cart.Click();
-        public int GetNumberofItemsInCart() => int.Parse(_cartBadgeNumber.Text);
+        public int GetNumberofItemsInCart()
+        {
+            try
+            {
+                return int.Parse(_cartBadgeNumber.Text);
+            }
+            catch (OpenQA.Selenium.NoSuchElementException)
+            {
+                return 0;
+            }
+        }
+
         public void GoBackToProductsList() => _backButton.Click();
         public void AddOrRemoveButtonClick() => _addRemoveToCartButtons.Click();
         public string GetAddOrRemoveButtonText() => _addRemoveToCartButtons.Text;

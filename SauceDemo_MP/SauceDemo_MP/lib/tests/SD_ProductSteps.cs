@@ -36,7 +36,7 @@ namespace SauceDemo_MP.lib.tests
         public void GivenThereAreNoItemsInMyCart()
         {
             _itemsInCart = 0;
-            Assert.Throws<OpenQA.Selenium.NoSuchElementException>(() => SD_Website.SD_ProductPage.GetNumberofItemsInCart());
+            Assert.That(SD_Website.SD_ProductPage.GetNumberofItemsInCart(), Is.EqualTo(0));
         }
 
         [Given(@"There are ""(.*)"" items in my cart")]
@@ -59,6 +59,12 @@ namespace SauceDemo_MP.lib.tests
             SD_Website.SD_ProductPage.AddOrRemoveButtonClick();
         }
 
+        [When(@"I click the back button")]
+        public void WhenIClickTheBackButton()
+        {
+            SD_Website.SD_ProductPage.GoBackToProductsList();
+        }
+
         [Then(@"the cart number size decreases by one")]
         public void ThenTheCartNumberSizeDecreasesByOne()
         {
@@ -69,6 +75,12 @@ namespace SauceDemo_MP.lib.tests
         public void ThenTheRemoveButtonChangesToAddToCart()
         {
             Assert.That(SD_Website.SD_ProductPage.GetAddOrRemoveButtonText().ToLower(), Is.EqualTo("add to cart"));
+        }
+
+        [Then(@"I should be on the products page")]
+        public void ThenIShouldBeOnTheProductsPage()
+        {
+            Assert.That(SD_Website.SeleniumDriver.Url, Is.EqualTo("https://www.saucedemo.com/inventory.html"));
         }
 
         [Then(@"the cart number size increases by one")]
