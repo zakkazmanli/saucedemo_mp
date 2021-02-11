@@ -55,7 +55,7 @@ namespace SauceDemo_MP.lib.steps
         [Then(@"I land on the Cart Page")]
         public void ThenILandOnTheCartPage()
         {
-            Assert.That(SD_Website.SD_CheckoutPage.Subheader().Contains("Your Cart"));
+            Assert.That(SD_Website.SeleniumDriver.Url, Is.EqualTo("https://www.saucedemo.com/cart.html"));
         }
 
         [Given(@"I fill in the firstname, secondname, postcode")]
@@ -69,7 +69,7 @@ namespace SauceDemo_MP.lib.steps
         [Then(@"I land on the Second Checkout Page")]
         public void ThenILandOnTheSecondCheckoutPage()
         {
-            Assert.That(SD_Website.SD_CheckoutPage.Subheader().Contains("Checkout: Overview"));
+            Assert.That(SD_Website.SeleniumDriver.Url, Is.EqualTo("https://www.https://www.saucedemo.com/checkout-step-two.html"));
         }
 
 
