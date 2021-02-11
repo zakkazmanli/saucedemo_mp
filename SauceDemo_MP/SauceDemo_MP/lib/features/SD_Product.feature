@@ -2,14 +2,9 @@
 	Exploring the interactions with the
 	individual product pages
 
-@Product
-Scenario: Add item to cart
+Background: 
 	Given I have signed in as "standard_user" with the password "secret_sauce"
-	And I click <product_name>
-	And There are no items in my cart
-	When I click the add to cart button
-	Then the cart number size increases by one
-	And the add to cart button changes to remove
+	And I click the <product_name> product button
 	Examples:
 		| product_name                      |
 		| Sauce Labs Backpack               |
@@ -18,3 +13,18 @@ Scenario: Add item to cart
 		| Sauce Labs Fleece Jacket          |
 		| Sauce Labs Onesie                 |
 		| Test.allTheThings() T-Shirt (Red) |
+
+@Product
+Scenario: Add item to cart
+	And There are no items in my cart
+	When I click the add to cart button
+	Then the cart number size increases by one
+	And the add to cart button changes to remove
+
+@Product
+Scenario: Remove item From cart
+	And I click the add to cart button
+	And There are "1" items in my cart
+	When I click the remove button
+	Then the cart number size decreases by one
+	And the remove button changes to add to cart
