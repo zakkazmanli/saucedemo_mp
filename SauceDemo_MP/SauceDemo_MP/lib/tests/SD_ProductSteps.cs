@@ -67,7 +67,7 @@ namespace SauceDemo_MP.lib.tests
         [Then(@"the remove button changes to add to cart")]
         public void ThenTheRemoveButtonChangesToAddToCart()
         {
-            Assert.That(SD_Website.SD_ProductPage.GetAddItemToCartButtonText(), Is.Not.Null);
+            //Assert.That(SD_Website.SD_ProductPage.GetRemoveFromCartButtonText(), Throws.InstanceOf<OpenQA.Selenium.NoSuchElementException>());
             Assert.That(SD_Website.SD_ProductPage.GetAddItemToCartButtonText().ToLower(), Is.EqualTo("add to cart"));
         }
 
@@ -80,7 +80,7 @@ namespace SauceDemo_MP.lib.tests
         [Then(@"the add to cart button changes to remove")]
         public void ThenTheAddToCartButtonChangesToRemove()
         {
-            Assert.That(SD_Website.SD_ProductPage.GetRemoveFromCartButtonText(), Is.Not.Null);
+            //Assert.That(SD_Website.SD_ProductPage.GetAddItemToCartButtonText(), Throws.InstanceOf<OpenQA.Selenium.NoSuchElementException>());
             Assert.That(SD_Website.SD_ProductPage.GetRemoveFromCartButtonText().ToLower(), Is.EqualTo("remove"));
         }
     }
