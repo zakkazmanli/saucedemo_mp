@@ -6,29 +6,32 @@
 
 @checkouterror
 Scenario: Checkout Page : All Fields Empty
-Given I am on the checkout page 
+Given I am logged in
+And I am on the checkout page 
 When I press "Continue"
 Then I get an error saying "First Name is required"
 
 @checkouterror
 Scenario: Checkout Page, First Name Empty
 Given I am on the checkout page 
-And I enter a "lastname" and "postcode"
-When I press "Continue"
+When I enter a "lastname" and "postcode"
+And I press "Continue"
 Then I get an error saying "First Name is required"
 
 @checkouterror
 Scenario: Checkout Page, Last Name Empty
-Given I am on the checkout page 
-And I enter a "firstname" and "postcode"
-When I press "Continue"
+Given I am logged in 
+And I am on the checkout page 
+When I enter a "firstname" and "postcode"
+And I press "Continue"
 Then I get an error saying "Last Name is required"
 
 @checkouterror
 Scenario: Checkout Page, Postcode Empty
-Given I am on the checkout page 
-And I enter a "firstname" and "lastname"
-When I press "Continue"
+Given I am logged in 
+And I am on the checkout page 
+When I enter a "firstname" and "lastname"
+And I press "Continue"
 Then I get an error saying "Postal Code is required"
 
 @checkoutreturn
@@ -39,7 +42,8 @@ Then I land on the Cart Page
 
 @checkoutcontinue
 Scenario: Checkout Page, To Second Checkout Page
-Given I am on the checkout page 
-And I fill in the firstname, secondname, postcode
-When I press "Continue"
+Given I am logged in 
+And I am on the checkout page 
+When I fill in the firstname, secondname, postcode
+And I press "Continue"
 Then I land on the Second Checkout Page

@@ -15,17 +15,22 @@ namespace SauceDemo_MP.lib.steps
         {
             SD_Website = new SD_Website<ChromeDriver>();
         }
-
-        [Given(@"I am on the checkout page")]
-        public void GivenIAmOnTheCheckoutPage()
+        [Given(@"I am logged in")]
+        public void GivenIAmLoggedIn()
         {
             SD_Website.SD_SignInPage.NavigateToSignInPage();
             SD_Website.SD_SignInPage.EnterUsernameAndPassword("standard_user", "secret_sauce");
             SD_Website.SD_SignInPage.ClickLoginButton();
+        }
+
+
+        [Given(@"I am on the checkout page")]
+        public void GivenIAmOnTheCheckoutPage()
+        {
             SD_Website.SD_CheckoutPage.OnTheCheckoutPage();
         }
 
-        [Given(@"I enter a ""(.*)"" and ""(.*)""")]
+        [When(@"I enter a ""(.*)"" and ""(.*)""")]
         public void GivenIEnterAAnd(string firstinput, string secondinput)
         {
             if (firstinput == "firstname")
