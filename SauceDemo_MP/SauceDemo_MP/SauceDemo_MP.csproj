@@ -131,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="ClassDiagram.cd" />
     <None Include="lib\features\SD_Cart.feature" />
     <None Include="lib\features\SD_Product.feature" />
     <None Include="lib\features\CheckoutPageFeature.feature" />
