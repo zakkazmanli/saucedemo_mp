@@ -11,15 +11,15 @@ namespace SauceDemo_MP.lib.pages
     {
         private IWebDriver _seleniumDriver;
 
-        public SD_ProductPage(IWebDriver seleniumDriver)
-        {
-            _seleniumDriver = seleniumDriver;
-        }
-
         private IWebElement _cart => _seleniumDriver.FindElement(By.Id("shopping_cart_container"));
         private IWebElement _addRemoveToCartButtons => _seleniumDriver.FindElement(By.ClassName("btn_inventory"));
         private IWebElement _cartBadgeNumber => _seleniumDriver.FindElement(By.ClassName("shopping_cart_badge"));
         private IWebElement _backButton => _seleniumDriver.FindElement(By.ClassName("inventory_details_back_button"));
+
+        public SD_ProductPage(IWebDriver seleniumDriver)
+        {
+            _seleniumDriver = seleniumDriver;
+        }
 
         public void GoToCheckout() => _cart.Click();
         public int GetNumberofItemsInCart()
