@@ -16,6 +16,7 @@ namespace SauceDemo_MP.lib.tests
             SD_Website = new SD_Website<ChromeDriver>();
         }
 
+
         [Given(@"I am on the sign in page")]
         public void GivenIAmOnTheSignInPage()
         {
@@ -35,10 +36,10 @@ namespace SauceDemo_MP.lib.tests
             SD_Website.SD_SignInPage.EnterUsernameAndPassword(username, password);
         }
 
-        [When(@"I enter no username or password")]
-        public void WhenIEnterNoUsernameOrPassword()
+        [When(@"I enter a username ""(.*)"" and no password")]
+        public void WhenIEnterAUsernameAndNoPassword(string username)
         {
-            SD_Website.SD_SignInPage.EnterUsernameAndPassword("", "");
+            SD_Website.SD_SignInPage.EnterUsernameAndPassword(username, "");
         }
 
         [When(@"I click the login button")]
@@ -65,13 +66,11 @@ namespace SauceDemo_MP.lib.tests
             SD_Website.SD_SignInPage.ClickErrorMessageButton();
         }
 
-        //[Then(@"there should be no visible error message")]
-        //public void ThenThereShouldBeNoVisibleErrorMessage()
-        //{
-        //    Assert.That(SD_Website.SD_SignInPage.RetrieveErrorMessage(), Throws.InstanceOf<OpenQA.Selenium.NoSuchElementException>());
-        //}
-
-
+        [Then(@"there should be no visible error message")]
+        public void ThenThereShouldBeNoVisibleErrorMessage()
+        {
+            Assert.That(SD_Website.SD_SignInPage.RetrieveErrorMessage(), Is.EqualTo(""));
+        }
 
         [AfterScenario]
         public void TearDown()

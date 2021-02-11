@@ -119,6 +119,7 @@
     <Compile Include="lib\pages\SD_CheckoutTwoPage.cs" />
     <Compile Include="lib\pages\SD_SignInPage.cs" />
     <Compile Include="lib\SD_Website.cs" />
+    <Compile Include="lib\tests\SD_ProductsSteps.cs" />
     <Compile Include="lib\tests\SD_CheckoutTwoSteps.cs" />
     <Compile Include="lib\tests\SD_ProductSteps.cs" />
     <Compile Include="lib\tests\SD_CheckoutSteps.cs" />
