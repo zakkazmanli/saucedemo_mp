@@ -60,7 +60,7 @@ Scenario: Successful Login
 	Given I am on the sign in page
 	When I enter a username <usernames> and password <passwords>
 	And I click the login button
-	Then I should receive an error containing "Password is required"
+	Then I should be redirected to the products page
 	Examples:
 		| usernames               | passwords    |
 		| standard_user           | secret_sauce |

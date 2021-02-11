@@ -21,7 +21,25 @@ namespace SauceDemo_MP.lib.tests
         {
             SD_Website.SD_ProductsPage.GoToProductsPage();
         }
-        
+
+        [When(@"I click to add an item to cart")]
+        public void WhenIClickToAddAnItemToCart()
+        {
+            SD_Website.SD_ProductsPage.AddItemToCart();
+        }
+
+        [Then(@"the cart number increases by one")]
+        public void ThenTheCartNumberIncreasesByOne()
+        {
+            Assert.That(SD_Website.SD_ProductsPage.GetCartItemCount(), Is.EqualTo(1));
+        }
+
+        [Then(@"the add to cart button on the added item changes text to remove")]
+        public void ThenTheAddToCartButtonOnTheAddedItemChangesTextToRemove()
+        {
+            Assert.That(SD_Website.SD_ProductsPage.GetRemoveButtonText(), Is.EqualTo("REMOVE"));
+        }
+
         [When(@"I select Price \(low to high\)")]
         public void WhenISelectPriceLowToHigh()
         {
@@ -45,6 +63,19 @@ namespace SauceDemo_MP.lib.tests
         {
             Assert.That(SD_Website.SD_ProductsPage.GetListOfProductsPrices(), Is.Ordered.Descending);
         }
+
+        [When(@"I click to go to that item's page")]
+        public void WhenIClickToGoToThatItemSPage()
+        {
+            SD_Website.SD_ProductsPage.ClickProductName("Sauce Labs Backpack");
+        }
+
+        [Then(@"I am only able to remove that item from cart")]
+        public void ThenIAmOnlyAbleToRemoveThatItemFromCart()
+        {
+            Assert.That(SD_Website.SD_ProductPage.GetAddOrRemoveButtonText().ToLower(), Is.EqualTo("remove"));
+        }
+
 
 
         [AfterScenario]
