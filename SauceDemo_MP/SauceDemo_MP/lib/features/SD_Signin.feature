@@ -3,26 +3,29 @@
 	As a registered user of the sauce demo website
 	I want to be able to sign in to my account
 
-@SuccessfulLogin
-Scenario: Successful Login
+@UnsuccessfulLogin
+Scenario: No username or password
 	Given I am on the sign in page
-	When I enter a username <usernames> and password <passwords>
-	And I click the login button
-	Then I should be redirected to the products page
-	Examples:
-		| usernames               | passwords    |
-		| standard_user           | secret_sauce |
-		| problem_user            | secret_sauce |
-		| performance_glitch_user | secret_sauce |
+	When I click the login button
+	Then I should receive an error containing "Username is required"
+
 
 @UnsuccessfulLogin
-Scenario: Locked out user
+Scenario: No password
 	Given I am on the sign in page
-	When I enter a username "locked_out_user" and password "secret_sauce"
+	When I enter a username "standard_user" and no password
 	And I click the login button
-	Then I should receive an error containing "Sorry, this user has been locked out."
+	Then I should receive an error containing "Password is required"
 
 
+@UnsuccessfulLogin
+Scenario: No username
+	Given I am on the sign in page
+	When I enter a username  and password secret_sauce
+	And I click the login button
+	Then I should receive an error containing "Username is required"
+
+	
 @UnsuccessfulLogin
 Scenario: Invalid username
 	Given I am on the sign in page
@@ -30,26 +33,14 @@ Scenario: Invalid username
 	And I click the login button
 	Then I should receive an error containing "Username and password do not match any user in this service"
 
-@UnsuccessfulLogin
-Scenario: No username or password
-	Given I am on the sign in page
-	When I enter no username or password
-	And I click the login button
-	Then I should receive an error containing "Username is required"
 
 @UnsuccessfulLogin
-Scenario: No username
+Scenario: Locked out user
 	Given I am on the sign in page
-	When I enter a username  and password "secret_sauce"
+	When I enter a username locked_out_user and password secret_sauce
 	And I click the login button
-	Then I should receive an error containing "Username is required"
+	Then I should receive an error containing "Sorry, this user has been locked out."
 
-@UnsuccessfulLogin
-Scenario: No password
-	Given I am on the sign in page
-	When I enter a username "standard_user" and password ""
-	And I click the login button
-	Then I should receive an error containing "Password is required"
 
 @ClickingErrorButton
 Scenario: Clicking error button
@@ -64,3 +55,14 @@ Scenario: Clicking error button
 		|                          | secret_sauce |
 		| performance_glitch_user  |              |
 
+@SuccessfulLogin
+Scenario: Successful Login
+	Given I am on the sign in page
+	When I enter a username <usernames> and password <passwords>
+	And I click the login button
+	Then I should be redirected to the products page
+	Examples:
+		| usernames               | passwords    |
+		| standard_user           | secret_sauce |
+		| problem_user            | secret_sauce |
+		| performance_glitch_user | secret_sauce |
