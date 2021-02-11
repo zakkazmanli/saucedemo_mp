@@ -22,13 +22,13 @@ namespace SauceDemo_MP.lib.tests
         [Given(@"I click the ""(.*)"" add to cart button")]
         public void GivenIClickTheAddToCartButton(string productName)
         {
-            ScenarioContext.Current.Pending();
+            //ScenarioContext.Current.Pending();
         }
 
         [Given(@"I go to the cart page")]
         public void GivenIGoToTheCartPage()
         {
-            SD_Website.SD_ProductsPage.GoToCheckout();
+            SD_Website.SD_ProductPage.GoToCheckout();
         }
         
         [When(@"I click the checkout button")]
@@ -43,6 +43,13 @@ namespace SauceDemo_MP.lib.tests
             _productName = productName;
             SD_Website.SD_CartPage.ClickProductRemove(productName);
         }
+
+        [When(@"I click the continue shopping button")]
+        public void WhenIClickTheContinueShoppingButton()
+        {
+            SD_Website.SD_CartPage.ClickContinueShoppingButton();
+        }
+
 
         [Then(@"I should no longer see that item in my cart")]
         public void ThenIShouldNoLongerSeeThatItemInMyCart()
