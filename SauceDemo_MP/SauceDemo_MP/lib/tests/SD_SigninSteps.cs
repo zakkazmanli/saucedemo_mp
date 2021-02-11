@@ -8,13 +8,7 @@ namespace SauceDemo_MP.lib.tests
     [Binding]
     public class SD_SigninSteps
     {
-        private SD_Website<ChromeDriver> SD_Website;
-
-        [BeforeScenario]
-        public void SetUp()
-        {
-            SD_Website = new SD_Website<ChromeDriver>();
-        }
+        private SD_Website<ChromeDriver> SD_Website = new SD_Website<ChromeDriver>();
 
 
         [Given(@"I am on the sign in page")]
@@ -22,7 +16,6 @@ namespace SauceDemo_MP.lib.tests
         {
             SD_Website.SD_SignInPage.NavigateToSignInPage();
         }
-
 
         [When(@"I enter a username (.*) and password (.*)")]
         public void WhenIEnterAUsernameAndPassword(string username, string password)
@@ -54,17 +47,23 @@ namespace SauceDemo_MP.lib.tests
             Assert.That(SD_Website.SeleniumDriver.Url, Is.EqualTo("https://www.saucedemo.com/inventory.html"));
         }
 
+        [When(@"I click the remove error message button")]
+        public void WhenIClickTheRemoveErrorMessageButton()
+        {
+            SD_Website.SD_SignInPage.ClickErrorMessageButton();
+        }
+
         [Then(@"I should receive an error containing ""(.*)""")]
         public void ThenIShouldReceiveAnErrorContaining(string error)
         {
             Assert.That(SD_Website.SD_SignInPage.RetrieveErrorMessage(), Does.Contain(error));
         }
 
-        [When(@"I click the remove error message button")]
-        public void WhenIClickTheRemoveErrorMessageButton()
-        {
-            SD_Website.SD_SignInPage.ClickErrorMessageButton();
-        }
+        //[Then(@"there should be no visible error message")]
+        //public void ThenThereShouldBeNoVisibleErrorMessage()
+        //{
+        //    Assert.That(SD_Website.SD_SignInPage.RetrieveErrorMessage(), Throws.InstanceOf<OpenQA.Selenium.NoSuchElementException>());
+        //}
 
         [Then(@"there should be no visible error message")]
         public void ThenThereShouldBeNoVisibleErrorMessage()
