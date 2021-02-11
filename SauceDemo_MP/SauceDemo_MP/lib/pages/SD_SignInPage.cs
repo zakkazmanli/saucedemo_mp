@@ -36,5 +36,7 @@ namespace SauceDemo_MP.lib.pages
         public void ClickLoginButton() => _loginButton.Click();
 
         public string RetrieveErrorMessage() => _seleniumDriver.FindElement(By.CssSelector("*[data-test=\"error\"]")).Text;
+        
+        public void ClickErrorMessageButton() => _seleniumDriver.FindElement(By.ClassName("error-button")).Click();
     }
 }
