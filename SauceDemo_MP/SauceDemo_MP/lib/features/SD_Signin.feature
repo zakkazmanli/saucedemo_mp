@@ -51,16 +51,16 @@ Scenario: No password
 	And I click the login button
 	Then I should receive an error containing "Password is required"
 
-#@ClickingErrorButton
-#Scenario: Clicking error button
-#	Given I am on the sign in page
-#	When I enter a username <usernames2> and password <passwords2>
-#	And I click the login button
-#	And I click the remove error message button
-#	Then there should be no visible error message
-#		Examples:
-#		| usernames2               | passwords2   |
-#		| locked_out_user          | secret_sauce |
-#		|                          | secret_sauce |
-#		| performance_glitch_user  |              |
+@ClickingErrorButton
+Scenario: Clicking error button
+	Given I am on the sign in page
+	When I enter a username <usernames2> and password <passwords2>
+	And I click the login button
+	And I click the remove error message button
+	Then there should be no visible error message
+		Examples:
+		| usernames2               | passwords2   |
+		| locked_out_user          | secret_sauce |
+		|                          | secret_sauce |
+		| performance_glitch_user  |              |
 

@@ -65,11 +65,11 @@ namespace SauceDemo_MP.lib.tests
             SD_Website.SD_SignInPage.ClickErrorMessageButton();
         }
 
-        //[Then(@"there should be no visible error message")]
-        //public void ThenThereShouldBeNoVisibleErrorMessage()
-        //{
-        //    Assert.That(SD_Website.SD_SignInPage.RetrieveErrorMessage(), Throws.InstanceOf<OpenQA.Selenium.NoSuchElementException>());
-        //}
+        [Then(@"there should be no visible error message")]
+        public void ThenThereShouldBeNoVisibleErrorMessage()
+        {
+            Assert.That(SD_Website.SD_SignInPage.RetrieveErrorMessage(), Is.EqualTo(""));
+        }
 
 
 
