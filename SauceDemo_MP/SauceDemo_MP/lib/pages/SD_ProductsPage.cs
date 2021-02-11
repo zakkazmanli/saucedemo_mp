@@ -26,7 +26,7 @@ namespace SauceDemo_MP.lib.pages
         private IReadOnlyCollection<IWebElement> productsNameList => _seleniumDriver.FindElements(By.ClassName("inventory_item_name"));
         private IReadOnlyCollection<IWebElement> productsAddToCart => _seleniumDriver.FindElements(By.ClassName("btn_inventory"));
         private IWebElement burgerMenuButton => _seleniumDriver.FindElement(By.CssSelector(".bm-burger-button"));
-
+        public void GoToProductsPage() => _seleniumDriver.Navigate().GoToUrl(_productsPageURL);
 
         public void GoToCheckout() => cart.Click();
 
@@ -34,8 +34,10 @@ namespace SauceDemo_MP.lib.pages
 
         public void FilterProducts(string filterSpecifier) => filterOptions.SelectByValue(filterSpecifier);
 
+        public void ClickProductName(string productName) => productsNameList.Where(item => item.Text.Contains(productName.Trim('\"'))).FirstOrDefault().FindElement(By.XPath("..")).Click();
+
         public IEnumerable<decimal> GetListOfProductsPrices() => productsPriceList.Select(e => decimal.Parse(e.Text, NumberStyles.Currency, new CultureInfo("en-US")));
 
-        public IEnumerable<decimal> GetListOfProductsNames() => productsNameList.Select(e => decimal.Parse(e.Text, NumberStyles.Currency, new CultureInfo("en-US")));
+        public IEnumerable<string> GetListOfProductsNames() => productsNameList.Select(element => element.Text).ToArray();
     }
 }

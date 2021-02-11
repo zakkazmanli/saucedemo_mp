@@ -28,7 +28,7 @@ namespace SauceDemo_MP.Lib.Features
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "CheckoutPageFeature.feature"
+#line 1 "SD_Checkout.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
