@@ -24,51 +24,9 @@ The framework was designed using the POM (page object model) to represent indivi
 
 Through dependency injection, each page class is injected with the IWebDriver interface, with this interface being the means by which user interactions with the website are simulated through interacting with elements.
 
-## Test Cases
-#### 1. Sign in Page 
-- Invalid username 
-- Invalid password
-- Valid user
-- Locked out user
-- problem? user
-- Performance issue? user
-- No username
-- No password
-- No details
-
-#### 2. Products Page
-- Adding item to cart
-- Removing item from cart
-- Filtering products
-- Going to cart
-- Adding an item and going into item description
-
-#### 3. Cart Page
- - Checkout Item(s)
- - Remove Item
- - Continue Shopping
- - View Item
-
-#### 4. Checkout One Page
- - All Fields Empty
- - First Name Empty
- - Last Name Empty
- - Postcode Empty
- - Return to Cart 
- - Second Checkout Page
-
-#### 5. Checkout Two Page
- - Return to Products 
- - Send Order 
- - View Item
- - Correct Item Total
-
-#### 6. Product Page
-- Add to cart
-- Remove
-- Back
-
 ## Sprint Review
+
+At the beginning of the sprint, the team planned out the project which included writing user stories to cover each feature and the Gherkin syntax for each scenario/test case. We divided the user stories equally between each team member, and at sprint completion all user stories had been completed, with tests corresponding to the test cases all passing and hence satisfying that criterion in the project definition of done.
 
 ## Sprint Retrospective
 
