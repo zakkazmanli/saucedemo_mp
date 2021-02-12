@@ -22,6 +22,8 @@ The framework was designed using the POM (page object model) to represent indivi
 
 ![](https://github.com/zakkazmanli/saucedemo_mp/blob/dev/SauceDemo_MP/ClassDiagram.png)
 
+Through dependency injection, each page class is injected with the IWebDriver interface, with this interface being the means by which user interactions with the website are simulated through interacting with elements.
+
 ## Test Cases
 #### 1. Sign in Page 
 - Invalid username 
