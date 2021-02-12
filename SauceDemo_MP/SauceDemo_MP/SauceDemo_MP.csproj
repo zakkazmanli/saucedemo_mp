@@ -124,7 +124,7 @@
     <Compile Include="lib\tests\SD_ProductsSteps.cs" />
     <Compile Include="lib\tests\SD_CheckoutTwoSteps.cs" />
     <Compile Include="lib\tests\SD_ProductSteps.cs" />
-    <Compile Include="lib\tests\CheckoutPageFeatureSteps.cs" />
+    <Compile Include="lib\tests\SD_CheckoutSteps.cs" />
     <Compile Include="lib\tests\SD_SigninSteps.cs" />
     <Compile Include="lib\tests\SharedSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -135,7 +135,7 @@
     <None Include="lib\features\SD_Cart.feature" />
     <None Include="lib\features\SD_CheckoutTwo.feature" />
     <None Include="lib\features\SD_Product.feature" />
-    <None Include="lib\features\CheckoutPageFeature.feature" />
+    <None Include="lib\features\SD_Checkout.feature" />
     <None Include="lib\features\SD_Products.feature" />
     <None Include="lib\features\SD_Signin.feature" />
     <None Include="packages.config" />
