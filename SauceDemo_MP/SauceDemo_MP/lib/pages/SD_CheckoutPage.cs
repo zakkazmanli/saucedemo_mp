@@ -17,7 +17,7 @@ namespace SauceDemo_MP
      
         private IWebElement _continue => _seleniumDriver.FindElement(By.ClassName("cart_button"));
      
-       private IWebElement _cancel => _seleniumDriver.FindElement(By.ClassName("cart_cancel_link"));
+        private IWebElement _cancel => _seleniumDriver.FindElement(By.ClassName("cart_cancel_link"));
         private IWebElement _firstName => _seleniumDriver.FindElement(By.Id("first-name"));
         private IWebElement _lastName => _seleniumDriver.FindElement(By.Id("last-name"));
         private IWebElement _postCode => _seleniumDriver.FindElement(By.Id("postal-code"));

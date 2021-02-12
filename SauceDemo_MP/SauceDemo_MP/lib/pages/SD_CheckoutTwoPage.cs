@@ -43,10 +43,5 @@ namespace SauceDemo_MP
                 _cancel.Click();
             }
         }
-
-        public double SumOfItems()
-        {
-            return 1.0; // need to work out this method 
-        }
     }
 }
