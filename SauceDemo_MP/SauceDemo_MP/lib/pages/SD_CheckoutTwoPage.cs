@@ -11,9 +11,11 @@ namespace SauceDemo_MP
     public class SD_CheckoutTwoPage
     {
         private IWebDriver _seleniumDriver;
-        private string checkoutTwoUrl = $"{AppConfigReader.BaseURL} + '/checkout-step-two.html'";
-        private IWebElement _item => _seleniumDriver.FindElement(By.ClassName("inventory_item_name"));  
-        
+        private string checkoutTwoUrl = "https://www.saucedemo.com/checkout-step-two.html";
+        private IWebElement _item => _seleniumDriver.FindElement(By.ClassName("inventory_item_name"));
+        private IWebElement _finish => _seleniumDriver.FindElement(By.ClassName("cart_button"));
+        private IWebElement _cancel => _seleniumDriver.FindElement(By.ClassName("cart_cancel_link"));
+
 
         public SD_CheckoutTwoPage(IWebDriver seleniumDriver)
         {
@@ -30,9 +32,16 @@ namespace SauceDemo_MP
             _item.Click();
         }
 
-        public double SumOfItems()
+        public void PressButton(string button)
         {
-            return 1.0; // need to work out this method 
+            if (button == "Finish")
+            {
+                _finish.Click();
+            }
+            if (button == "Cancel")
+            {
+                _cancel.Click();
+            }
         }
     }
 }

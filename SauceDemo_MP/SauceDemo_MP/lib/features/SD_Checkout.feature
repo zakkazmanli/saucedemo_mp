@@ -5,35 +5,25 @@
 
 
 @checkouterror
+Scenario: Checkout Page : All Fields Empty Examples
+Given I have signed in as "standard_user" with the password "secret_sauce"
+And I am on the checkout page 
+When I enter a <input1> and <input2>
+And I press "Continue"
+Then I should receive the error containing <error>
+Examples:
+	| input1    | input2   | error                   |
+	| lastname  | postcode | First Name is required  |
+	| firstname | postcode | Last Name is required   |
+	| firstname | lastname | Postal Code is required |
+
+
+@checkouterror
 Scenario: Checkout Page : All Fields Empty
 Given I have signed in as "standard_user" with the password "secret_sauce"
 And I am on the checkout page 
 When I press "Continue"
 Then I should receive the error containing "First Name is required"
-
-@checkouterror
-Scenario: Checkout Page, First Name Empty
-Given I have signed in as "standard_user" with the password "secret_sauce"
-And I am on the checkout page 
-When I enter a "lastname" and "postcode"
-And I press "Continue"
-Then I should receive the error containing "First Name is required"
-
-@checkouterror
-Scenario: Checkout Page, Last Name Empty
-Given I have signed in as "standard_user" with the password "secret_sauce"
-And I am on the checkout page 
-When I enter a "firstname" and "postcode"
-And I press "Continue"
-Then I should receive the error containing "Last Name is required"
-
-@checkouterror
-Scenario: Checkout Page, Postcode Empty
-Given I have signed in as "standard_user" with the password "secret_sauce"
-And I am on the checkout page 
-When I enter a "firstname" and "lastname"
-And I press "Continue"
-Then I should receive the error containing "Postal Code is required"
 
 @checkoutreturn
 Scenario: Checkout Page, Return to Cart
