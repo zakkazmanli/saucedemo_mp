@@ -16,7 +16,9 @@ The goal of this project was to create a testing framework to support the automa
 - [ ] The documentation is fully realised, with a comprehensive README.md describing sprint progress and outcomes.
 - [ ] The end product is reviewed and approved.
 
-## Class Diagram
+## Framework
+
+The framework was designed using the POM (page object model) to represent individual website pages as objects, such that object oriented principles could be exploited in the testing of the website. This is illustrated in the class diagram below, where the website as a whole is first represented by the SD_Website class with each individual page instantiated by this class:
 
 ![](https://github.com/zakkazmanli/saucedemo_mp/blob/dev/SauceDemo_MP/ClassDiagram.png)
 
