@@ -22,4 +22,4 @@ Scenario: Continue Shopping
 	Given I have signed in as "standard_user" with the password "secret_sauce"
 	And I go to the cart page
 	When I click the continue shopping button
-	Then I should be redirected to the products page
+	Then I should land on the products page

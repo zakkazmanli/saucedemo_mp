@@ -3,6 +3,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
 using System;
 using TechTalk.SpecFlow;
+using System.Threading;
 
 namespace SauceDemo_MP.lib.tests
 {
@@ -10,14 +11,13 @@ namespace SauceDemo_MP.lib.tests
     public class SD_CartSteps
     {
         private SD_Website<ChromeDriver> SD_Website;
+        private string _productName;
 
         [BeforeScenario]
         public void SetUp()
         {
             SD_Website = new SD_Website<ChromeDriver>();
         }
-
-        private string _productName;
 
         [Given(@"I click the ""(.*)"" add to cart button")]
         public void GivenIClickTheAddToCartButton(string productName)
@@ -28,7 +28,7 @@ namespace SauceDemo_MP.lib.tests
         [Given(@"I go to the cart page")]
         public void GivenIGoToTheCartPage()
         {
-            SD_Website.SD_ProductPage.GoToCheckout();
+            SD_Website.SD_ProductPage.GoToCartPage();
         }
         
         [When(@"I click the checkout button")]
@@ -48,6 +48,12 @@ namespace SauceDemo_MP.lib.tests
         public void WhenIClickTheContinueShoppingButton()
         {
             SD_Website.SD_CartPage.ClickContinueShoppingButton();
+        }
+
+        [Then(@"I should land on the products page")]
+        public void ThenIShouldLandOnTheProductsPage()
+        {
+            Assert.That(SD_Website.SeleniumDriver.Url, Is.EqualTo("https://www.saucedemo.com/inventory.html"));
         }
 
 
