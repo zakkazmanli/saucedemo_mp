@@ -24,12 +24,6 @@ namespace SauceDemo_MP.lib.tests
             SD_Website.SD_SignInPage.ClickLoginButton();
         }
 
-        [Given(@"I have item\(s\) in my cart")]
-        public void GivenIHaveItemSInMyCart()
-        {
-            // add to cart  SD_Website.SD_ProductsPage.AddToCart();
-        }
-
         [Given(@"I am on the checkout two page")]
         [When(@"I go to the checkout two page")]
         public void IGoToTheCheckoutTwoPage()
@@ -43,18 +37,7 @@ namespace SauceDemo_MP.lib.tests
             SD_Website.SD_CheckoutTwoPage.ClickOnItem();
         }
 
-        //[When(@"I press ""(.*)""")]
-        //public void WhenIPress(string button)
-        //{
-        //    SD_Website.SD_CheckoutPage.PressButton(button);
-        //}
 
-        [Then(@"my item total is correct")]
-        public void ThenMyItemTotalIsCorrect()
-        {
-            SD_Website.SD_CheckoutTwoPage.SumOfItems();
-        }
-        
         [Then(@"I land on the Products Page")]
         public void ThenILandOnTheProductsPage()
         {
@@ -67,12 +50,6 @@ namespace SauceDemo_MP.lib.tests
             Assert.That(SD_Website.SeleniumDriver.Url, Is.EqualTo("https://www.saucedemo.com/checkout-complete.html"));
         }
         
-        [Then(@"I land on the item info page")]
-        public void ThenILandOnTheItemInfoPage()
-        {
-            // METHOD to check its the item page 
-        }
-
         [AfterScenario]
         public void TearDown()
         {
