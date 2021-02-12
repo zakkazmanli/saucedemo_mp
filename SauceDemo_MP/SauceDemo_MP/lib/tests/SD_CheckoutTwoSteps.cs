@@ -43,6 +43,12 @@ namespace SauceDemo_MP.lib.tests
             SD_Website.SD_CheckoutTwoPage.ClickOnItem();
         }
 
+        //[When(@"I press ""(.*)""")]
+        //public void WhenIPress(string button)
+        //{
+        //    SD_Website.SD_CheckoutPage.PressButton(button);
+        //}
+
         [Then(@"my item total is correct")]
         public void ThenMyItemTotalIsCorrect()
         {
