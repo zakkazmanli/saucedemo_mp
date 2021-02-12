@@ -26,7 +26,7 @@ Through dependency injection, each page class is injected with the IWebDriver in
 
 ## Sprint Review
 
-At the beginning of the sprint, the team planned out the project which included writing user stories to cover each feature and the Gherkin syntax for each scenario/test case. We divided the user stories equally between each team member, and at sprint completion all user stories had been completed, with tests corresponding to the test cases all passing and hence satisfying that criterion in the project definition of done.
+At the beginning of the sprint, we started by performing exploratory testing of the website to get a feel for what utilities were suppored, and importantly how error messages could be found. We subsequently wrote user stories to cover the possible journeys a user would take whilst using the website, and the Gherkin syntax was written to exhaust all possible routes within each user story. We divided the user stories equally between each team member, and at sprint completion all user stories had been completed, with tests corresponding to the test cases all passing and hence satisfying that criterion in the project definition of done.
 
 ## Sprint Retrospective
 
