@@ -20,7 +20,7 @@ The goal of this project was to create a testing framework to support the automa
 
 The framework was designed using the POM (page object model) to represent individual website pages as objects, such that object oriented principles could be exploited in the testing of the website. This is illustrated in the class diagram below, where the website as a whole is first represented by the SD_Website class with each individual page instantiated by this class:
 
-![](https://github.com/zakkazmanli/saucedemo_mp/blob/dev/SauceDemo_MP/ClassDiagram.png)
+![](https://github.com/zakkazmanli/saucedemo_mp/blob/dev/SauceDemo_MP/POMPicture.PNG)
 
 Through dependency injection, each page class is injected with the IWebDriver interface, with this interface being the means by which user interactions with the website are simulated through interacting with elements.
 
