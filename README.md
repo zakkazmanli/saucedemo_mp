@@ -24,7 +24,7 @@ The framework was designed using the POM (page object model) to represent indivi
 
 Through dependency injection, each page class is injected with the IWebDriver interface, with this interface being the means by which user interactions with the website are simulated through interacting with elements. We could then write our SpecFlow features to correspond to each test case for a given user story using Gherkin syntax. An example of this for the signin page is shown below:
 
-![](https://github.com/zakkazmanli/saucedemo_mp/blob/dev/SauceDemo_MP/FeatureBetter.PNG)
+<img src="https://github.com/zakkazmanli/saucedemo_mp/blob/dev/SauceDemo_MP/FeatureBetter.PNG" alt="Your image title" width="750"/>
 
 Once the acceptance criteria is written in such a fashion, SpecFlow then allowed us to easily create the step definitions that would correspond to these GIVEN, WHEN, THEN steps, as illustrated in the image below, again for the signin page:
 
