@@ -22,9 +22,7 @@ namespace SauceDemo_MP.lib.tests
         [Given(@"I click the ""(.*)"" add to cart button")]
         public void GivenIClickTheAddToCartButton(string productName)
         {
-            //This is not working, not on the correct page for some reason
             SD_Website.SD_ProductsPage.GoToProductsPage();
-            var test = SD_Website.SeleniumDriver.Url;
             SD_Website.SD_ProductsPage.AddItemToCart();
         }
 
@@ -63,7 +61,7 @@ namespace SauceDemo_MP.lib.tests
         [Then(@"I should no longer see that item in my cart")]
         public void ThenIShouldNoLongerSeeThatItemInMyCart()
         {
-            Assert.Throws<NoSuchElementException>(() => SD_Website.SD_CartPage.GetCardItemByName(_productName));
+            Assert.That(SD_Website.SD_CartPage.GetCardItemByName(_productName), Is.Null);
         }
 
         [Then(@"I should be on the checkout page")]
