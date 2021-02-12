@@ -64,7 +64,12 @@ The goal of this project was to create a testing framework to support the automa
 - Remove
 - Back
 
+## Sprint Review
 
 ## Sprint Retrospective
+
+-had fun making the test framework and solidifiying knowledge of pom, specflow and gherkin
+-regularly updated the project board
+-didnt have fun waiting for 10+ windows to open per test, which is an area for improvement in the future
 
 
