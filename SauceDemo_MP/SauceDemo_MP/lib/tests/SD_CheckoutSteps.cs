@@ -6,7 +6,7 @@ using TechTalk.SpecFlow;
 namespace SauceDemo_MP.lib.steps
 {
     [Binding]
-    public class CheckoutPageFeatureSteps
+    public class SD_CheckoutSteps
     {
         private SD_Website<ChromeDriver> SD_Website = new SD_Website<ChromeDriver>();
 
@@ -16,8 +16,10 @@ namespace SauceDemo_MP.lib.steps
             SD_Website.SD_CheckoutPage.OnTheCheckoutPage();
         }
 
-        [Given(@"I enter a ""(.*)"" and ""(.*)""")]
-        public void GivenIEnterAAnd(string firstinput, string secondinput)
+
+        [When(@"I enter a (.*) and (.*)")]
+        [When(@"I enter a ""(.*)"" and ""(.*)""")]
+        public void WhenIEnterAAnd(string firstinput, string secondinput)
         {
             if (firstinput == "firstname")
             { SD_Website.SD_CheckoutPage.EnterFirstName(firstinput); }
@@ -42,8 +44,8 @@ namespace SauceDemo_MP.lib.steps
             Assert.That(SD_Website.SD_CheckoutPage.Subheader().Contains("Your Cart"));
         }
 
-        [Given(@"I fill in the firstname, secondname, postcode")]
-        public void GivenIFillInTheFirstnameSecondnamePostcode()
+        [When(@"I fill in the firstname, secondname, postcode")]
+        public void IFillInTheFirstnameSecondnamePostcode()
         {
             SD_Website.SD_CheckoutPage.EnterFirstName("Sam");
             SD_Website.SD_CheckoutPage.EnterLastName("Test");
@@ -56,6 +58,7 @@ namespace SauceDemo_MP.lib.steps
             Assert.That(SD_Website.SeleniumDriver.Url, Is.EqualTo("https://www.saucedemo.com/checkout-step-two.html"));
         }
 
+        [Then(@"I should receive the error containing (.*)")]
         [Then(@"I should receive the error containing ""(.*)""")]
         public void ThenIShouldReceiveTheErrorContaining(string error)
         {
