@@ -20,17 +20,16 @@ namespace SauceDemo_MP.lib.pages
         }
 
         private IWebElement cart => _seleniumDriver.FindElement(By.Id("shopping_cart_container"));
-        private IWebElement cartCount => _seleniumDriver.FindElement(By.Id("shopping_cart_badge"));
         private SelectElement filterOptions => new SelectElement(_seleniumDriver.FindElement(By.ClassName("product_sort_container")));
         private IReadOnlyCollection<IWebElement> productsPriceList => _seleniumDriver.FindElements(By.ClassName("inventory_item_price"));
         private IReadOnlyCollection<IWebElement> productsNameList => _seleniumDriver.FindElements(By.ClassName("inventory_item_name"));
         private IReadOnlyCollection<IWebElement> productsAddToCart => _seleniumDriver.FindElements(By.ClassName("btn_inventory"));
         private IWebElement burgerMenuButton => _seleniumDriver.FindElement(By.CssSelector(".bm-burger-button"));
+
+
         public void GoToProductsPage() => _seleniumDriver.Navigate().GoToUrl(_productsPageURL);
 
         public void GoToCheckout() => cart.Click();
-
-        public int GetNumberofItemsInCart() => int.Parse(cartCount.Text);
 
         public void FilterProducts(string filterSpecifier) => filterOptions.SelectByValue(filterSpecifier);
 
@@ -39,5 +38,22 @@ namespace SauceDemo_MP.lib.pages
         public IEnumerable<decimal> GetListOfProductsPrices() => productsPriceList.Select(e => decimal.Parse(e.Text, NumberStyles.Currency, new CultureInfo("en-US")));
 
         public IEnumerable<string> GetListOfProductsNames() => productsNameList.Select(element => element.Text).ToArray();
+
+        public void AddItemToCart() => productsAddToCart.ToArray()[0].Click();
+
+        public void RemoveItemFromCart() => productsAddToCart.ToArray()[0].Click();
+
+        public int GetCartItemCount() => int.Parse(_seleniumDriver.FindElement(By.ClassName("shopping_cart_badge")).Text);
+
+        public string GetRemoveButtonText() => _seleniumDriver.FindElement(By.ClassName("btn_inventory")).Text;
+
+        public bool CheckProductsSortedAlphabetically(bool alphabetical)
+        {
+            IEnumerable<string> sortedArray;
+            if(alphabetical) sortedArray = GetListOfProductsNames().OrderBy(element => element);
+            else sortedArray = GetListOfProductsNames().OrderByDescending(element => element);
+
+            return GetListOfProductsNames().SequenceEqual(sortedArray);
+        }
     }
 }
