@@ -15,7 +15,6 @@ namespace SauceDemo_MP.lib.tests
         [Given(@"I click the (.*) product button")]
         public void GivenIClickTheProductButton(string productName)
         {
-            var test = SD_Website.SD_ProductsPage.GetListOfProductsNames();
             SD_Website.SD_ProductsPage.ClickProductName(productName);
         }
 
