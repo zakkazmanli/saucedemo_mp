@@ -72,8 +72,6 @@ Through dependency injection, each page class is injected with the IWebDriver in
 
 ## Sprint Retrospective
 
--had fun making the test framework and solidifiying knowledge of pom, specflow and gherkin
--regularly updated the project board
--didnt have fun waiting for 10+ windows to open per test, which is an area for improvement in the future
+This project was incredibly beneficial with regards to encouraging familiarity with building an automation testing framework, solidfying knowledge of the POM in the process and its benefits in creating a scalable framework. We additionally gained alot of experience with SpecFlow and Gherkin, appreciating the benefits in writing readable and concise user stories and acceptance criteria.
 
-
+The project was not without any difficulty however - the key issue we encountered related to the sharing of step methods between feature files. SpecFlow is unfortunately unable to differentiate exactly which scenario is being called at any one time whenever a shared step method is called, and consequently multiple step page instances are created which in turn increases the time taken for tests to pass considerably. In the future, we would attempt to implement a shared steps class to hold these shared methods to ideally prevent this from happening. Additionally, we frequently had issues identifying web elements although this is more due to poor website design and web element identification, and actually serves to cause us to appreciate the benefits of appropriately assigning web elements unique identification when developing a website, for the benefit of those required to subsequently test the website.
