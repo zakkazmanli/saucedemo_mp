@@ -31,6 +31,13 @@ namespace SauceDemo_MP.lib.tests
             SD_Website.SD_CheckoutTwoPage.OnTheCheckoutTwoPage();
         }
 
+        [Given(@"I have an item in my basket")]
+        public void GivenIHaveAnItemInMyBasket()
+        {
+            SD_Website.SD_ProductsPage.AddItemToCart();
+        }
+
+
         [When(@"I press on the Item")]
         public void WhenIPressOnTheItem()
         {
@@ -49,7 +56,8 @@ namespace SauceDemo_MP.lib.tests
         { 
             Assert.That(SD_Website.SeleniumDriver.Url, Is.EqualTo("https://www.saucedemo.com/checkout-complete.html"));
         }
-        
+
+
         [AfterScenario]
         public void TearDown()
         {
