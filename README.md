@@ -28,7 +28,7 @@ Through dependency injection, each page class is injected with the IWebDriver in
 
 Once the acceptance criteria is written in such a fashion, SpecFlow then allowed us to easily create the step definitions that would correspond to these GIVEN, WHEN, THEN steps, as illustrated in the image below, again for the signin page:
 
-![](https://github.com/zakkazmanli/saucedemo_mp/blob/dev/SauceDemo_MP/SignInSteps.PNG =250x250)
+![](https://github.com/zakkazmanli/saucedemo_mp/blob/dev/SauceDemo_MP/SignInSteps.PNG)
 
 ## Sprint Review
 
