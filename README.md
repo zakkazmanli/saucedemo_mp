@@ -30,6 +30,10 @@ Once the acceptance criteria is written in such a fashion, SpecFlow then allowed
 
 <img src="https://github.com/zakkazmanli/saucedemo_mp/blob/dev/SauceDemo_MP/SignInSteps.PNG" alt="Your image title" width="750"/>
 
+The overall class diagram with these steps file included is shown below for clarity:
+
+<img src="https://github.com/zakkazmanli/saucedemo_mp/blob/dev/SauceDemo_MP/ClassDiagram.png" alt="Your image title" width="750"/>
+
 ## Sprint Review
 
 At the beginning of the sprint, we started by performing exploratory testing of the website to get a feel for what utilities were suppored, and importantly how error messages could be found. We subsequently wrote user stories to cover the possible journeys a user would take whilst using the website, and the Gherkin syntax was written to exhaust all possible routes within each user story. We divided the user stories equally between each team member, and at sprint completion all user stories had been completed, with tests corresponding to the test cases all passing and hence satisfying that criterion in the project definition of done.
