@@ -26,6 +26,10 @@ Through dependency injection, each page class is injected with the IWebDriver in
 
 ![](https://github.com/zakkazmanli/saucedemo_mp/blob/dev/SauceDemo_MP/FeatureBetter.PNG)
 
+Once the acceptance criteria is written in such a fashion, SpecFlow then allowed us to easily create the step definitions that would correspond to these GIVEN, WHEN, THEN steps, as illustrated in the image below, again for the signin page:
+
+![](https://github.com/zakkazmanli/saucedemo_mp/blob/dev/SauceDemo_MP/SignInSteps.PNG)
+
 ## Sprint Review
 
 At the beginning of the sprint, we started by performing exploratory testing of the website to get a feel for what utilities were suppored, and importantly how error messages could be found. We subsequently wrote user stories to cover the possible journeys a user would take whilst using the website, and the Gherkin syntax was written to exhaust all possible routes within each user story. We divided the user stories equally between each team member, and at sprint completion all user stories had been completed, with tests corresponding to the test cases all passing and hence satisfying that criterion in the project definition of done.
