@@ -15,9 +15,7 @@ namespace SauceDemo_MP
         private string _signInPageURL = AppConfigReader.BaseURL;
 
         private IWebElement _username => _seleniumDriver.FindElement(By.Id("user-name"));
-
         private IWebElement _password => _seleniumDriver.FindElement(By.Id("password"));
-
         private IWebElement _loginButton => _seleniumDriver.FindElement(By.Id("login-button"));
 
         public SD_SignInPage(IWebDriver seleniumDriver)
