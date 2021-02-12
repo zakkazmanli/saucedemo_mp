@@ -10,7 +10,7 @@ namespace SauceDemo_MP.lib.tests
     [Binding]
     public class SD_CartSteps
     {
-        private SD_Website<ChromeDriver> SD_Website;
+        private SD_Website<ChromeDriver> SD_Website = new SD_Website<ChromeDriver>();
         private string _productName;
 
         [BeforeScenario]
@@ -22,7 +22,10 @@ namespace SauceDemo_MP.lib.tests
         [Given(@"I click the ""(.*)"" add to cart button")]
         public void GivenIClickTheAddToCartButton(string productName)
         {
-            //ScenarioContext.Current.Pending();
+            //This is not working, not on the correct page for some reason
+            SD_Website.SD_ProductsPage.GoToProductsPage();
+            var test = SD_Website.SeleniumDriver.Url;
+            SD_Website.SD_ProductsPage.AddItemToCart();
         }
 
         [Given(@"I go to the cart page")]
@@ -66,7 +69,7 @@ namespace SauceDemo_MP.lib.tests
         [Then(@"I should be on the checkout page")]
         public void ThenIShouldBeOnTheCheckoutPage()
         {
-            Assert.That(SD_Website.SeleniumDriver.Url, Is.EqualTo("https://www.saucedemo.com/inventory.html"));
+            Assert.That(SD_Website.SeleniumDriver.Url, Is.EqualTo("https://www.saucedemo.com/checkout-step-one.html"));
         }
 
         [AfterScenario]

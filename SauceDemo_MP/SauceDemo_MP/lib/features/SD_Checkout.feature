@@ -27,14 +27,14 @@ Then I should receive the error containing "First Name is required"
 
 @checkoutreturn
 Scenario: Checkout Page, Return to Cart
-Given I am logged in
+Given I have signed in as "standard_user" with the password "secret_sauce"
 And I am on the checkout page 
 When I press "Cancel"
 Then I land on the Cart Page 
 
 @checkoutcontinue
 Scenario: Checkout Page, To Second Checkout Page
-Given I am logged in 
+Given I have signed in as "standard_user" with the password "secret_sauce"
 And I am on the checkout page 
 When I fill in the firstname, secondname, postcode
 And I press "Continue"
