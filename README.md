@@ -22,7 +22,9 @@ The framework was designed using the POM (page object model) to represent indivi
 
 ![](https://github.com/zakkazmanli/saucedemo_mp/blob/dev/SauceDemo_MP/POMPicture.PNG)
 
-Through dependency injection, each page class is injected with the IWebDriver interface, with this interface being the means by which user interactions with the website are simulated through interacting with elements. We could then write our SpecFlow features to correspond to each test case for a given user story using Gherkin syntax
+Through dependency injection, each page class is injected with the IWebDriver interface, with this interface being the means by which user interactions with the website are simulated through interacting with elements. We could then write our SpecFlow features to correspond to each test case for a given user story using Gherkin syntax. An example of this for the signin page is shown below:
+
+![](https://github.com/zakkazmanli/saucedemo_mp/blob/dev/SauceDemo_MP/FeatureBetter.PNG)
 
 ## Sprint Review
 
