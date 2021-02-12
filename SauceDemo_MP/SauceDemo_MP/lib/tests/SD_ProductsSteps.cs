@@ -76,6 +76,46 @@ namespace SauceDemo_MP.lib.tests
             Assert.That(SD_Website.SD_ProductPage.GetAddOrRemoveButtonText().ToLower(), Is.EqualTo("remove"));
         }
 
+        [When(@"I click to remove that item from cart")]
+        public void WhenIClickToRemoveThatItemFromCart()
+        {
+            SD_Website.SD_ProductsPage.RemoveItemFromCart();
+        }
+
+
+        [Then(@"the remove button on the removed item changes text to add to cart")]
+        public void ThenTheRemoveButtonOnTheRemovedItemChangesTextToAddToCart()
+        {
+            Assert.That(SD_Website.SD_ProductsPage.GetRemoveButtonText(), Is.EqualTo("ADD TO CART"));
+        }
+
+        [When(@"I select Name \(A to Z\)")]
+        public void WhenISelectNameAToZ()
+        {
+            SD_Website.SD_ProductsPage.FilterProducts("az");
+        }
+
+        [Then(@"the products are ordered in alphabetical order")]
+        public void ThenTheProductsAreOrderedInAlphabeticalOrder()
+        {
+            Assert.That(SD_Website.SD_ProductsPage.CheckProductsSortedAlphabetically(true), Is.True);
+        }
+
+        [When(@"I select Name \(Z to A\)")]
+        public void WhenISelectNameZToA()
+        {
+            SD_Website.SD_ProductsPage.FilterProducts("za");
+        }
+
+        [Then(@"the products are ordered in reverse alphabetical order")]
+        public void ThenTheProductsAreOrderedInReverseAlphabeticalOrder()
+        {
+            Assert.That(SD_Website.SD_ProductsPage.CheckProductsSortedAlphabetically(false), Is.True);
+        }
+
+
+
+
 
 
         [AfterScenario]
