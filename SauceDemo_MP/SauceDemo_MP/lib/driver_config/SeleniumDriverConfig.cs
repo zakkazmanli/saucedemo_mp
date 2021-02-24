@@ -31,8 +31,8 @@ namespace SeleniumPOM.lib.driver_config
 
         public void SetDriverConfiguration(int pageLoadInSecs, int implicitWaitInSecs)
         {
-            Driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(pageLoadInSecs);
-            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(implicitWaitInSecs);
+            //Driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(pageLoadInSecs);
+            //Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(implicitWaitInSecs);
         }
 
     }

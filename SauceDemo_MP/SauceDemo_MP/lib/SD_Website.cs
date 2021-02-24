@@ -14,7 +14,7 @@ namespace SauceDemo_MP
         public SD_CheckoutPage SD_CheckoutPage { get; set; }
         public SD_CheckoutTwoPage SD_CheckoutTwoPage { get; set; }
 
-        public SD_Website(int pageLoadWaitInSecs = 5, int implicitWaitInSecs = 5)
+        public SD_Website(int pageLoadWaitInSecs = 2, int implicitWaitInSecs = 2)
         {
             SeleniumDriver = new SeleniumDriverConfig<T>(pageLoadWaitInSecs, implicitWaitInSecs).Driver;
           

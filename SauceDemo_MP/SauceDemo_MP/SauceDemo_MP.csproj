@@ -113,6 +113,7 @@
   <ItemGroup>
     <Compile Include="AppConfigReader.cs" />
     <Compile Include="lib\driver_config\SeleniumDriverConfig.cs" />
+    <Compile Include="lib\driver_config\SharedStepVariables.cs" />
     <Compile Include="lib\pages\SD_CartPage.cs" />
     <Compile Include="lib\pages\SD_ProductPage.cs" />
     <Compile Include="lib\pages\SD_ProductsPage.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="lib\pages\SD_CheckoutTwoPage.cs" />
     <Compile Include="lib\pages\SD_SignInPage.cs" />
     <Compile Include="lib\SD_Website.cs" />
+    <Compile Include="lib\tests\BeforeAfterScenario.cs" />
     <Compile Include="lib\tests\SD_CartSteps.cs" />
     <Compile Include="lib\tests\SD_ProductsSteps.cs" />
     <Compile Include="lib\tests\SD_CheckoutTwoSteps.cs" />
